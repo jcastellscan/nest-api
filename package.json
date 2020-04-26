@@ -9,6 +9,9 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "clean": "rimraf dist",
+    "start:local": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/nest-api/src/main.js\"",
+    "server": "run-s clean start:local",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -26,7 +29,8 @@
     "@nestjs/platform-express": "^7.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "tsc-watch": "^4.2.3"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
@@ -42,6 +46,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
     "jest": "^25.1.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
     "ts-jest": "25.2.1",
