@@ -8,7 +8,13 @@ import { MONGO_CONNECTION } from './constants';
 @Module({
   imports: [
     InformativesModule,
-    MongooseModule.forRoot(MONGO_CONNECTION)
+    MongooseModule.forRoot(
+      MONGO_CONNECTION,
+      {
+        useFindAndModify: false,
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      })
   ],
   controllers: [AppController],
   providers: [AppService],
