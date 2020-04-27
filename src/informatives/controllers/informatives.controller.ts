@@ -11,6 +11,7 @@ export class InformativesController {
 
 	@Get('api/informatives')
 	async getInformatives(): Promise<Informative[]> {
+
 		return [{
 			id: '1',
 			title: 'primer titulo',
