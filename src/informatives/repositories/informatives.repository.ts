@@ -25,4 +25,16 @@ export class InformativesRepository {
 
 	}
 
+	async removeInformative(informativeId: string) {
+		return this.informativeModel.deleteOne({ _id: informativeId });
+	}
+
+	async addInformative(inf: Partial<Informative>) {
+		const newInformative = new this.informativeModel(inf);
+
+		await newInformative.save();
+
+		return newInformative.toObject({ versionKey: false });
+	}
+
 }
